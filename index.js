@@ -7,6 +7,10 @@ const opn = require('open');
 const app = express();
 
 const PORT = 3000;
+const baseUrl = "https://hubspot-tinkle-poc.onrender.com"
+if(process.env.NODE_ENV in ["development", "dev","test"]){
+ baseUrl= `http://localhost:${PORT}`
+}
 
 const refreshTokenStore = {};
 const accessTokenCache = new NodeCache({ deleteOnExpire: true });
@@ -36,7 +40,7 @@ if (process.env.SCOPE) {
 }
 
 // On successful install, users will be redirected to /oauth-callback
-const REDIRECT_URI = `http://localhost:${PORT}/oauth-callback`;
+const REDIRECT_URI = `${baseUrl}/oauth-callback`;
 
 //===========================================================================//
 console.log({rand:Math.random().toString(36).substring(2)});
@@ -233,5 +237,5 @@ app.get('/error', (req, res) => {
   res.end();
 });
 
-app.listen(PORT, () => console.log(`=== Starting your app on http://localhost:${PORT} ===`));
-opn(`http://localhost:${PORT}`);
+app.listen(PORT, () => console.log(`=== Starting your app on ${baseUrl} ===`));
+//opn(`${baseUrl}`);

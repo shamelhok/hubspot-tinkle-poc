@@ -203,10 +203,15 @@ exports.crmSampleController = async(req, res) => {
       'X-API-KEY':"436efa91-5a02-4305-b8d5-57d0ab0d2bd6"
             }
         })
-        console.log(response);
         const body = JSON.parse(response)
         const tiers = body.data
-        if(Array.isArray(tiers))        card1.properties= tiers
+        card1.properties.push(
+            { 
+            "label": "Resolution type",
+            "dataType": "STRING",
+            "value": tiers[0].tierName
+    })
+        console.log(card1);
     }catch(err){
         console.log(err);
     }

@@ -1,4 +1,6 @@
+const fetch = require("fetch")
 exports.crmSampleController = async(req, res) => {
+    res.setHeader('Content-Type', 'application/json');
     const result = {
         "results": [
             {

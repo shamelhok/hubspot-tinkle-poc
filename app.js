@@ -178,12 +178,11 @@ const getContact = async (accessToken) => {
     // return JSON.parse(result).contacts[0];
     const headers = {
       Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
-      'X-API-KEY':"436efa91-5a02-4305-b8d5-57d0ab0d2bd6"
+      'Content-Type': 'application/json'
     };
     console.log('===> Replace the following request.get() to test other API calls');
     console.log('===> request.get(\'https://api.hubapi.com/contacts/v1/lists/all/contacts/all?count=1\')');
-    const result = await request.get('https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all', {
+    const result = await request.get('https://api.hubapi.com/contacts/v1/lists/all/contacts/all?count=1', {
       headers: headers
     });
   console.log({result});
@@ -191,7 +190,7 @@ const getContact = async (accessToken) => {
     //.contacts[0];
   } catch (e) {
     console.error('  > Unable to retrieve contact');
-    console.log(e.response.body);
+    console.log(e.response?.body);
     return e
     return JSON.parse(e.response.body);
   }
@@ -208,7 +207,6 @@ app.get('/', async (req, res) => {
   res.write(`<h2>HubSpot OAuth 2.0 Quickstart App</h2>`);
   if (isAuthorized(req.sessionID)) {
     const accessToken = await getAccessToken(req.sessionID);
-    const contact = await getContact(accessToken);
     res.write(`<h4>Access token: ${accessToken}</h4>`)
   } else {
     res.write(`<a href="/install"><h3>Install the app</h3></a>`);

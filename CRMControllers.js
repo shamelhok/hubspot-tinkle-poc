@@ -59,7 +59,7 @@ exports.crmSampleController = (req, res) => {
                 "title": "API-54: Question about bulk APIs",
                 "link": "http://example.com/2",
                 "created": "2016-08-04",
-                //"priority": "HIGH",
+                "priority": "LOW",
                 "project": "API",
                 "reported_by": "ksmith@hubspot.com",
                 "description": "Customer is not able to find documentation about our bulk Contacts APIs.",
@@ -109,7 +109,7 @@ exports.crmSampleController = (req, res) => {
             },
             {
                 "objectId": 988,
-                "title": "API-54: Question about bulk APIs",
+                "title": "Card 3",
                 "link": "http://example.com/2",
                 "created": "2016-08-04",
                 "priority": "HIGH",

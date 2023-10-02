@@ -48,7 +48,7 @@ exports.crmSampleController = async(req, res) => {
                     },
                     {
                         "type": "CONFIRMATION_ACTION_HOOK",
-                        "confirmationMessage": "Are you sure you want to delete this ticket?",
+                        "confirmationMessage": "Are you sure you want to complete this action?",
                         "confirmButtonText": "Yes",
                         "cancelButtonText": "No",
                         "httpMethod": "GET",
@@ -57,6 +57,13 @@ exports.crmSampleController = async(req, res) => {
                         ],
                         "uri": "https://nc-news-api-rwfo.onrender.com/api",
                         "label": "confirm action"
+                    },
+                    {
+                        "type": "ACTION_HOOK",
+                        "httpMethod": "GET",
+                        "associatedObjectProperties": [],
+                        "uri": "https://nc-news-api-rwfo.onrender.com/api/dfgdfgrgdg",
+                        "label": "failing action "
                     }
                 ]
             }

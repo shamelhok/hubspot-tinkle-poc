@@ -1,4 +1,4 @@
-function crmSampleController(req, res) {
+exports.crmSampleController=(req, res)=> {
     res.send({
         "results": [
           {

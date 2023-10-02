@@ -4,6 +4,7 @@ const request = require('request-promise-native');
 const NodeCache = require('node-cache');
 const session = require('express-session');
 const { baseUrl } = require('./constants');
+const { crmSampleController } = require('./CRMControllers');
 const app = express();
 
 const refreshTokenStore = {};

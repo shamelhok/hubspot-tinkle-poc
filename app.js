@@ -37,7 +37,6 @@ if (process.env.SCOPE) {
 const REDIRECT_URI = `${baseUrl}/oauth-callback`;
 
 //===========================================================================//
-console.log({rand:Math.random().toString(36).substring(2)});
 // Use a session to keep track of client ID
 app.use(session({
   secret: Math.random().toString(36).substring(2),
@@ -107,6 +106,7 @@ app.get('/oauth-callback', async (req, res) => {
   }
 });
 
+app.get("/crm/sample",crmSampleController)
 //==========================================//
 //   Exchanging Proof for an Access Token   //
 //==========================================//
@@ -200,15 +200,6 @@ const getContact = async (accessToken) => {
 //   Displaying information to the user   //
 //========================================//
 
-const displayString = (res, string) => {
-  // if (string.status === 'error') {
-  //   res.write(`<p>Unable to retrieve contact! Error Message: ${string.message}</p>`);
-  //   return;
-  // }
-  // const { firstname, lastname } = string.properties;
-  res.write(`<p> ${string} </p>`);
-};
-
 app.get('/', async (req, res) => {
   //console.log(req);
   // res.send({asdasd:2344324})
@@ -217,8 +208,7 @@ app.get('/', async (req, res) => {
   if (isAuthorized(req.sessionID)) {
     const accessToken = await getAccessToken(req.sessionID);
     const contact = await getContact(accessToken);
-    res.write(`<h4>Access token: ${accessToken}</h4>`);
-    displayString(res, contact);
+    res.write(`<h4>Access token: ${accessToken}</h4>`)
   } else {
     res.write(`<a href="/install"><h3>Install the app</h3></a>`);
   }

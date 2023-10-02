@@ -62,7 +62,7 @@ exports.crmSampleController = async(req, res) => {
                         "type": "ACTION_HOOK",
                         "httpMethod": "GET",
                         "associatedObjectProperties": [],
-                        "uri": "https://nc-news-api-rwfo.onrender.com/api/dfgdfgrgdg",
+                        "uri": "https://nc-news-api-rwfo.fghfgonrender.com/api/dfgdfgrgdg",
                         "label": "failing action "
                     }
                 ]

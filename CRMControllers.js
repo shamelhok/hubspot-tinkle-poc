@@ -197,7 +197,13 @@ exports.crmSampleController = async(req, res) => {
     const card1 = result.results[0]
     try{
 
-        const response=await request.get("https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all")
+        const response=await request.get("https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all",
+        {
+            headers:{
+      'X-API-KEY':"436efa91-5a02-4305-b8d5-57d0ab0d2bd6"
+            }
+        })
+        console.log(response);
         const body = JSON.parse(response)
         const tiers = body.data
         if(Array.isArray(tiers))        card1.properties= tiers

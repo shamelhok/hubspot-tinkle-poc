@@ -1,7 +1,5 @@
-exports.crmSampleController = (req, res) => {
-    const { query, body } = req
-    console.log({ query, body });
-    res.send({
+exports.crmSampleController = async(req, res) => {
+    const result = {
         "results": [
             {
                 "objectId": 1,
@@ -193,5 +191,16 @@ exports.crmSampleController = (req, res) => {
             "uri": "https://cdne-jupiter-dev-uks-01.azureedge.net/",
             "label": "Open Web app"
         }
-    })
+    }
+    const card1 = result.results[0]
+    try{
+
+        const response=await fetch("https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all")
+        const body = await response.json()
+        const tiers = body.data
+        if(Array.isArray(tiers))        card1.properties= tiers
+    }catch(err){
+        console.log(err);
+    }
+    res.send(result)
 }

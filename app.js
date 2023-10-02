@@ -11,7 +11,7 @@ const refreshTokenStore = {};
 const accessTokenCache = new NodeCache({ deleteOnExpire: true });
 
 if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET) {
-    throw new Error('Missing CLIENT_ID or CLIENT_SECRET environment variable.')
+  throw new Error('Missing CLIENT_ID or CLIENT_SECRET environment variable.')
 }
 
 //===========================================================================//
@@ -31,7 +31,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 // To request others, set the SCOPE environment variable instead
 let SCOPES = ['crm.objects.contacts.read'];
 if (process.env.SCOPE) {
-    SCOPES = (process.env.SCOPE.split(/ |, ?|%20/)).join(' ');
+  SCOPES = (process.env.SCOPE.split(/ |, ?|%20/)).join(' ');
 }
 
 // On successful install, users will be redirected to /oauth-callback
@@ -44,7 +44,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
- 
+
 //================================//
 //   Running the OAuth 2.0 Flow   //
 //================================//
@@ -103,18 +103,18 @@ app.get('/oauth-callback', async (req, res) => {
 
     // Once the tokens have been retrieved, use them to make a query
     // to the HubSpot API
-   res.redirect(`/?code=${req.query.code}`);
+    res.redirect(`/?code=${req.query.code}`);
   }
 });
 
-app.get("/crm/sample",crmSampleController)
+app.get("/crm/sample", crmSampleController)
 //==========================================//
 //   Exchanging Proof for an Access Token   //
 //==========================================//
 
 const exchangeForTokens = async (userId, exchangeProof) => {
   try {
-    console.log({userId});
+    console.log({ userId });
     const responseBody = await request.post('https://api.hubapi.com/oauth/v1/token', {
       form: exchangeProof
     });
@@ -182,10 +182,11 @@ const getContact = async (accessToken) => {
     };
     console.log('===> Replace the following request.get() to test other API calls');
     console.log('===> request.get(\'https://api.hubapi.com/contacts/v1/lists/all/contacts/all?count=1\')');
+   // https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all
     const result = await request.get('https://api.hubapi.com/contacts/v1/lists/all/contacts/all?count=1', {
       headers: headers
     });
-  console.log({result});
+    console.log({ result });
     return (result)
     //.contacts[0];
   } catch (e) {
@@ -229,4 +230,4 @@ app.get('/error', (req, res) => {
   res.end();
 });
 
-exports.app=app
+exports.app = app

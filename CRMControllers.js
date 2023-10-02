@@ -19,17 +19,12 @@ exports.crmSampleController = async(req, res) => {
                 "updated": "2016-09-28",
                 "properties": [
                     {
-                        "label": "Resolved by",
+                        "label": "email example",
                         "dataType": "EMAIL",
                         "value": "ijones@hubspot.com"
                     },
                     {
-                        "label": "Resolution type",
-                        "dataType": "STRING",
-                        "value": "Referred to documentation"
-                    },
-                    {
-                        "label": "Resolution impact",
+                        "label": "currenvy example",
                         "dataType": "CURRENCY",
                         "value": "94.34",
                         "currencyCode": "GBP"

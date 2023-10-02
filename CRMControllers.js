@@ -1,4 +1,4 @@
-const fetch = require("fetch")
+const request = require('request-promise-native');
 exports.crmSampleController = async(req, res) => {
     res.setHeader('Content-Type', 'application/json');
     const result = {
@@ -197,8 +197,8 @@ exports.crmSampleController = async(req, res) => {
     const card1 = result.results[0]
     try{
 
-        const response=await fetch("https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all")
-        const body = await response.json()
+        const response=await request.get("https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all")
+        const body = JSON.parse(response)
         const tiers = body.data
         if(Array.isArray(tiers))        card1.properties= tiers
     }catch(err){

@@ -39,7 +39,7 @@ exports.crmSampleController = (req, res) => {
                         "type": "IFRAME",
                         "width": 890,
                         "height": 748,
-                        "uri": "https://example.com/edit-iframe-contents",
+                        "uri": "https://hubspot-tinkle-poc.onrender.com/",
                         "label": "Edit",
                         "associatedObjectProperties": []
                     },

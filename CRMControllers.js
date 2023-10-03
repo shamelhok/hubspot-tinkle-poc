@@ -1,7 +1,12 @@
 const request = require('request-promise-native');
-exports.crmSampleController = async(req, res) => {
-    const {query, body}=req
-    console.log({body,query});
+exports.crmSampleController = async (req, res) => {
+    const exampleQuery = {
+        userId: '60778933',
+        userEmail: 'msh_shamel@hotmail.co.uk',
+        associatedObjectId: '51',
+        associatedObjectType: 'CONTACT',
+        portalId: '143373337'
+    }
     res.setHeader('Content-Type', 'application/json');
     const result = {
         "results": [
@@ -73,7 +78,7 @@ exports.crmSampleController = async(req, res) => {
             "type": "IFRAME",
             "width": 890,
             "height": 748,
-            "uri": "https://example.com/settings-iframe-contents",
+            "uri": "https://nc-news-shamel.netlify.app/",
             "label": "Settings"
         },
         "primaryAction": {
@@ -85,29 +90,29 @@ exports.crmSampleController = async(req, res) => {
         }
     }
     const card1 = result.results[0]
-    try{
+    try {
 
-        const response=await request.get("https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all",
-        {
-            headers:{
-      'X-API-KEY':"436efa91-5a02-4305-b8d5-57d0ab0d2bd6"
-            }
-        })
+        const response = await request.get("https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all",
+            {
+                headers: {
+                    'X-API-KEY': "436efa91-5a02-4305-b8d5-57d0ab0d2bd6"
+                }
+            })
         const body = JSON.parse(response)
         const tiers = body.data
         card1.properties.push(
-            { 
-            "label": "tier name",
-            "dataType": "STRING",
-            "value": tiers[0].tierName
-    })
-    }catch(err){
+            {
+                "label": "tier name",
+                "dataType": "STRING",
+                "value": tiers[0].tierName
+            })
+    } catch (err) {
         console.log(err);
     }
     res.send(result)
 }
 
-exports.crmNcController= async(req,res)=>{
+exports.crmNcController = async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     const result = {
         "results": [
@@ -186,10 +191,10 @@ exports.crmNcController= async(req,res)=>{
             "label": "Open Web app"
         }
     }
-    const user={
+    const user = {
         username: 'tickle122',
         name: 'Tom Tickle',
         avatar_url:
-          'https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953'
-      }
+            'https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953'
+    }
 }

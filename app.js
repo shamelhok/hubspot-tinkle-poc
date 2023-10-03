@@ -203,8 +203,13 @@ const getContact = async (accessToken) => {
 //========================================//
 
 app.get('/', async (req, res) => {
-  const {query, body}=req
-  console.log({body,query});
+  const exampleQuery = {
+    userId: '60778933',
+    userEmail: 'msh_shamel@hotmail.co.uk',
+    associatedObjectId: '51',
+    associatedObjectType: 'CONTACT',
+    portalId: '143373337'
+}
   res.setHeader('Content-Type', 'text/html');
   res.write(`<h2>HubSpot OAuth 2.0 Quickstart App</h2>`);
   res.write(` <button id="iframe-close-button">

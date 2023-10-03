@@ -9,6 +9,7 @@ exports.crmSampleController = async (req, res) => {
     }
     const contacts = {
         51:"Brian",
+        1:"Maria"
     }
     const contactId= req.query?.associatedObjectId
     const contact = contacts[contactId]

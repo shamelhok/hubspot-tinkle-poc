@@ -7,6 +7,11 @@ exports.crmSampleController = async (req, res) => {
         associatedObjectType: 'CONTACT',
         portalId: '143373337'
     }
+    const contacts = {
+        51:"Brian",
+    }
+    const contactId= req.query?.associatedObjectId
+    const contact = contacts[contactId]
     res.setHeader('Content-Type', 'application/json');
     const result = {
         "results": [
@@ -70,6 +75,21 @@ exports.crmSampleController = async (req, res) => {
                         "associatedObjectProperties": [],
                         "uri": "https://nc-news-api-rwfo.fghfgonrender.com/api/dfgdfgrgdg",
                         "label": "failing action "
+                    }
+                ]
+            },
+            {
+                "objectId": 2,
+                "title": `Ring ${contact||"id "+contactId}`,
+                "updated": "2016-09-28",
+                "actions": [
+                    {
+                        "type": "IFRAME",
+                        "width": 890,
+                        "height": 748,
+                        "uri": "https://hubspot-tinkle-poc.onrender.com/",
+                        "label": "popup",
+                        "associatedObjectProperties": []
                     }
                 ]
             }

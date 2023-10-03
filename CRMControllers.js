@@ -1,12 +1,13 @@
 const request = require('request-promise-native');
 exports.crmSampleController = async(req, res) => {
-    
+    const {query, body}=req
+    console.log({body,query});
     res.setHeader('Content-Type', 'application/json');
     const result = {
         "results": [
             {
                 "objectId": 1,
-                "title": "API-22: APIs working too fast",
+                "title": "CRM card title",
                 "link": "http://example.com/1",
                 "created": "2016-09-15",
                 "priority": "HIGH",

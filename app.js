@@ -79,7 +79,8 @@ app.get('/install', (req, res) => {
 // and process it based on the query parameters that are passed
 app.get('/oauth-callback', async (req, res) => {
   console.log('===> Step 3: Handling the request sent by the server');
-  console.log(req.query.code)
+  const {query, body}=req
+  console.log({body,query});
   // Received a user authorization code, so now combine that with the other
   // required values and exchange both for an access token and a refresh token
   if (req.query.code) {
@@ -202,8 +203,8 @@ const getContact = async (accessToken) => {
 //========================================//
 
 app.get('/', async (req, res) => {
-  //console.log(req);
-  // res.send({asdasd:2344324})
+  const {query, body}=req
+  console.log({body,query});
   res.setHeader('Content-Type', 'text/html');
   res.write(`<h2>HubSpot OAuth 2.0 Quickstart App</h2>`);
   res.write(` <button id="iframe-close-button">

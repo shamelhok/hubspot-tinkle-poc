@@ -74,7 +74,7 @@ exports.crmSampleController = async (req, res) => {
                         "type": "ACTION_HOOK",
                         "httpMethod": "GET",
                         "associatedObjectProperties": [],
-                        "uri": "https://nc-news-api-rwfo.fghfgonrender.com/api/dfgdfgrgdg",
+                        "uri": "https://nc-news-api-rwjkjkfo.fghfgonrender.com/api",
                         "label": "failing action "
                     }
                 ]
@@ -90,6 +90,14 @@ exports.crmSampleController = async (req, res) => {
                         "height": 748,
                         "uri": "https://hubspot-tinkle-poc.onrender.com/",
                         "label": "popup",
+                        "associatedObjectProperties": []
+                    },
+                    {
+                        "type": "IFRAME",
+                        "width": 890,
+                        "height": 748,
+                        "uri": "https://www.tinkle.co",
+                        "label": "tinkle popup",
                         "associatedObjectProperties": []
                     }
                 ]

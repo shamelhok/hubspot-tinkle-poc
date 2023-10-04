@@ -224,6 +224,7 @@ app.get('/', async (req, res) => {
   if (isAuthorized(req.sessionID)) {
     const accessToken = await getAccessToken(req.sessionID);
     res.write(`<h4>Access token: ${accessToken}</h4>`)
+    res.write(`<a href="https://app-eu1.hubspot.com/"><h3> Back to Hubspot </h3></a>`);
   } else {
     res.write(`<a href="/install"><h3>Install the app</h3></a>`);
   }

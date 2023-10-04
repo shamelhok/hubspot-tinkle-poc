@@ -96,7 +96,7 @@ exports.crmSampleController = async (req, res) => {
                         "type": "IFRAME",
                         "width": 890,
                         "height": 748,
-                        "uri": "https://www.tinkle.co",
+                        "uri": "https://www.tinkle.co/",
                         "label": "tinkle popup",
                         "associatedObjectProperties": []
                     }

@@ -31,12 +31,12 @@ exports.crmSampleController = async (req, res) => {
                 "updated": "2016-09-28",
                 "properties": [
                     {
-                        "label": "email example",
+                        "label": "Email ",
                         "dataType": "EMAIL",
                         "value": "ijones@hubspot.com"
                     },
                     {
-                        "label": "currenvy example",
+                        "label": "Currency ",
                         "dataType": "CURRENCY",
                         "value": "94.34",
                         "currencyCode": "GBP"
@@ -91,15 +91,16 @@ exports.crmSampleController = async (req, res) => {
                         "uri": "https://hubspot-tinkle-poc.onrender.com/",
                         "label": "popup",
                         "associatedObjectProperties": []
-                    },
-                    {
-                        "type": "IFRAME",
-                        "width": 890,
-                        "height": 748,
-                        "uri": "https://www.tinkle.co/",
-                        "label": "tinkle popup",
-                        "associatedObjectProperties": []
                     }
+                    //,
+                    // {
+                    //     "type": "IFRAME",
+                    //     "width": 890,
+                    //     "height": 748,
+                    //     "uri": "https://www.tinkle.co/",
+                    //     "label": "tinkle popup",
+                    //     "associatedObjectProperties": []
+                    // }
                 ]
             }
         ],
@@ -121,20 +122,20 @@ exports.crmSampleController = async (req, res) => {
     const card1 = result.results[0]
     try {
 
-        const response = await request.get("https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all",
-            {
-                headers: {
-                    'X-API-KEY': "436efa91-5a02-4305-b8d5-57d0ab0d2bd6"
-                }
-            })
-        const body = JSON.parse(response)
-        const tiers = body.data
-        card1.properties.push(
-            {
-                "label": "tier name",
-                "dataType": "STRING",
-                "value": tiers[0].tierName
-            })
+        // const response = await request.get("https://api-jupiter-dev-uks-01.azurewebsites.net/api/tier/all",
+        //     {
+        //         headers: {
+        //             'X-API-KEY': "436efa91-5a02-4305-b8d5-57d0ab0d2bd6"
+        //         }
+        //     })
+        // const body = JSON.parse(response)
+        // const tiers = body.data
+        // card1.properties.push(
+        //     {
+        //         "label": "tier name",
+        //         "dataType": "STRING",
+        //         "value": tiers[0].tierName
+        //     })
     } catch (err) {
         console.log(err);
     }

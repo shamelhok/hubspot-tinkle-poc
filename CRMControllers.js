@@ -40,6 +40,11 @@ exports.crmSampleController = async (req, res) => {
                         "dataType": "CURRENCY",
                         "value": "94.34",
                         "currencyCode": "GBP"
+                    },
+                    {
+                        "label": "String",
+                        "dataType": "STRING",
+                        "value": "Text goes here"
                     }
                 ],
                 "actions": [

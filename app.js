@@ -213,7 +213,7 @@ app.get('/', async (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.write(`<h2>HubSpot OAuth 2.0 Quickstart App</h2>`);
   res.write(` <button id="iframe-close-button">
-  button
+  close iframe button
 </button>
 <script defer>
   const button = document.getElementById("iframe-close-button")
